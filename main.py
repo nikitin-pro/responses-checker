@@ -22,10 +22,14 @@ def load_image(lbl):
 streamlit.title('Get image hash')
 img0 = load_image('Upload correct response')
 img1 = load_image('Upload image to test')
-result = streamlit.button('Test')
+result = streamlit.button('Check')
 if result:
     hash0 = get_hash(img0)
     hash1 = get_hash(img1)
-    delta = hash0 - hash1
-    streamlit.write('**Difference:**')
-    streamlit.write(delta)
+    delta hash0 - hash1
+    if delta <= 1:
+        resu = 'PASSED!'
+    else:
+        resu = 'FAILED!'
+    streamlit.write('**Verdict:**')
+    streamlit.write(resu)
