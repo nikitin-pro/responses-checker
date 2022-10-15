@@ -26,7 +26,7 @@ result = streamlit.button('Check')
 if result:
     hash0 = get_hash(img0)
     hash1 = get_hash(img1)
-    delta hash0 - hash1
+    delta = hash0 - hash1
     if delta <= 1:
         resu = 'PASSED!'
     else:
