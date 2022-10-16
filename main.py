@@ -27,6 +27,7 @@ def load_image():
                 image_data = file.getvalue()
                 img = Image.open(io.BytesIO(image_data))
                 hash = get_hash(img)
+                streamlit.write(type(hash))
                 delta = correct_hash - hash
                 resu = 'PASSED!' if delta <= 1 else 'FAILED!'
                 streamlit.write(resu)
