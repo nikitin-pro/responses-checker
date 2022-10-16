@@ -28,7 +28,7 @@ def load_image():
                 hash = get_hash(img)
                 delta = correct_hash - hash
                 if delta<=1:
-                streamlit.write(file.name+' is PASSED!')
+                    streamlit.write(file.name+' is PASSED!')
     else:
         return None
 
