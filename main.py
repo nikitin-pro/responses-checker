@@ -3,7 +3,7 @@ import streamlit
 from PIL import Image
 import imagehash
 
-correct_hash = ''
+correct_hash = None
 
 def get_hash(img):
     hash = imagehash.average_hash(img)
