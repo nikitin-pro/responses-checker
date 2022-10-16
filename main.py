@@ -25,7 +25,6 @@ def load_image():
         with streamlit.container():
             for file in uploaded_files:
                 image_data = file.getvalue()
-                streamlit.image(image_data)
                 img = Image.open(io.BytesIO(image_data))
                 hash = get_hash(img)
                 delta = correct_hash - hash
