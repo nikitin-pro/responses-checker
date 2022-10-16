@@ -9,7 +9,7 @@ def get_hash(img):
 
 
 def load_image(lbl):
-    uploaded_file = streamlit.file_uploader(label=lbl, key=lbl)
+    uploaded_file = streamlit.file_uploader(label=lbl, key=lbl, type=['png','jpg'])
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         streamlit.image(image_data)
