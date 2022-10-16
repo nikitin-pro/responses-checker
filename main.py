@@ -3,7 +3,6 @@ import streamlit
 from PIL import Image
 import imagehash
 
-correct_hash
 
 def get_hash(img):
     hash = imagehash.average_hash(img)
@@ -16,7 +15,7 @@ def load_image_correct():
         image_data = uploaded_file.getvalue()
         streamlit.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        correct_hash = get_hash(img)
+        return get_hash(img)
         
 
 def load_image():
@@ -36,6 +35,6 @@ def load_image():
 
 
 streamlit.title('Get image hash')
-load_image_correct()
+correct_hash = load_image_correct()
 load_image()
 
