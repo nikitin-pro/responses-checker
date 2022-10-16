@@ -23,7 +23,7 @@ def load_image():
         with streamlit.container():
             for file in files:
                 image_data = file.getvalue()
-                img = Image.open(io.BytesIO(file.getValue()))
+                img = Image.open(io.BytesIO(image_data))
                 hash = get_hash(img)
                 delta = correct_hash - hash
                 if delta<=1:
