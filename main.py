@@ -24,8 +24,8 @@ def load_image():
         with streamlit.container():
             for file in uploaded_files:
                 image_data = file.getvalue()
-                img = Image.open(file.read())
-                hash = get_hash(img)
+                
+                hash = get_hash(file)
                 delta = correct_hash - hash
                 if delta<=1:
                     streamlit.write(file.name+' is PASSED!')
