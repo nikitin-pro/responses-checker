@@ -8,8 +8,8 @@ def get_hash(img):
     return hash
 
 
-def load_image(lbl):
-    uploaded_file = streamlit.file_uploader(label=lbl, key=lbl, type=['png','jpg'])
+def load_image(lbl,multiple):
+    uploaded_file = streamlit.file_uploader(label=lbl, key=lbl, type=['png','jpg'], accept_multiple_files=multiple)
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         streamlit.image(image_data)
@@ -20,8 +20,8 @@ def load_image(lbl):
 
 
 streamlit.title('Get image hash')
-img0 = load_image('Upload correct response')
-img1 = load_image('Upload image to test')
+img0 = load_image('Upload correct response',False)
+img1 = load_image('Upload image to test',True)
 result = streamlit.button('Check')
 if result:
     hash0 = get_hash(img0)
