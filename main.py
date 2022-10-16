@@ -24,11 +24,11 @@ def load_image():
         with streamlit.container():
             for file in uploaded_files:
                 image_data = file.getvalue()
-                img = Image.open(io.BytesIO(image_data))
-                hash = get_hash(img)
+                #img = Image.open(io.BytesIO(image_data))
+                hash = get_hash(file.read())
                 delta = correct_hash - hash
-                resu = file.name+' is PASSED!' if delta <= 1 else file.name+' is FAILED!'
-                streamlit.write(resu)
+                if delta<=1:
+                streamlit.write(file.name+' is PASSED!')
     else:
         return None
 
