@@ -12,8 +12,7 @@ def get_hash(img):
 def load_image_correct():
     uploaded_file = streamlit.file_uploader(label='Upload correct response', key=0, type=['png','jpg'])
     if uploaded_file is not None:
-        image_data = uploaded_file.getvalue()
-        streamlit.image(image_data)
+        streamlit.image(uploaded_file.getvalue())
         img = Image.open(io.BytesIO(image_data))
         return get_hash(img)
         
@@ -24,7 +23,7 @@ def load_image():
         with streamlit.container():
             for file in uploaded_files:
                 image_data = file.getvalue()
-                img = Image.open(io.BytesIO(file))
+                img = Image.open(io.BytesIO(file.getValue()))
                 hash = get_hash(img)
                 delta = correct_hash - hash
                 if delta<=1:
