@@ -17,7 +17,7 @@ def load_image_correct():
     else:
         return None
 
- def load_image():
+def load_image():
     uploaded_file = streamlit.file_uploader(label='Upload images to test', key=1, type=['png','jpg'], accept_multiple_files=True)
     if uploaded_file is not None:
         image_data = uploaded_file.getvalues()
