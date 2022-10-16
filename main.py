@@ -27,7 +27,7 @@ def load_image():
                 img = Image.open(io.BytesIO(image_data))
                 hash = get_hash(img)
                 delta = correct_hash - hash
-                if delta<=2:
+                if delta<=3:
                     streamlit.subheader(file.name+' has PASSED!')
     else:
         return None
