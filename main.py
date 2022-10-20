@@ -28,7 +28,7 @@ def load_image():
                 hash = get_hash(img)
                 delta = correct_hash - hash
                 if delta<=5:
-                    streamlit.subheader(file.name+' has PASSED!')
+                    streamlit.subheader(file.name+' ПРАВИЛЬНЫЙ!')
     else:
         return None
 
