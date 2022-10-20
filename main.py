@@ -10,7 +10,7 @@ def get_hash(img):
 
 
 def load_image_correct():
-    file = streamlit.file_uploader(label='Upload reference response:', key=0, type=['png','jpg'])
+    file = streamlit.file_uploader(label='Эталонный ответ:', key=0, type=['png','jpg'])
     if file is not None:
         image_data = file.getvalue()
         streamlit.image(image_data)
@@ -19,7 +19,7 @@ def load_image_correct():
         
 
 def load_image():
-    files = streamlit.file_uploader(label='Upload responses to test:', key=1, type=['png','jpg'], accept_multiple_files=True)
+    files = streamlit.file_uploader(label='Ответы студентов на проверку:', key=1, type=['png','jpg'], accept_multiple_files=True)
     if files is not None:
         with streamlit.container():
             for file in files:
@@ -33,7 +33,7 @@ def load_image():
         return None
 
 
-streamlit.title('Get image hash')
+streamlit.title('Проверка студенческих работ')
 correct_hash = load_image_correct()
 load_image()
 
