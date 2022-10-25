@@ -38,6 +38,7 @@ def load_image():
 
 
 streamlit.title('Проверка студенческих работ')
+counter = -1
 correct_hash = load_image_correct()
 load_image()
 
