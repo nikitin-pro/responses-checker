@@ -22,6 +22,7 @@ def load_image():
     files = streamlit.file_uploader(label='Ответы студентов на проверку:', key=1, type=['png','jpg'], accept_multiple_files=True)
     if files is not None:
         with streamlit.container():
+            counter = 0
             for file in files:
                 image_data = file.getvalue()
                 img = Image.open(io.BytesIO(image_data))
@@ -29,6 +30,9 @@ def load_image():
                 delta = correct_hash - hash
                 if delta<=5:
                     streamlit.subheader(file.name+' ПРАВИЛЬНЫЙ!')
+                    counter += 1
+            if counter == 0:
+                streamlit.subheader('ПРАВИЛЬНЫХ ОТВЕТОВ НЕТ!')
     else:
         return None
 
