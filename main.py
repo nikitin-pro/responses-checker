@@ -32,13 +32,12 @@ def load_image():
                     streamlit.subheader(file.name+' ПРАВИЛЬНЫЙ!')
                     counter += 1
             if counter == 0:
-                streamlit.subheader('ПРАВИЛЬНЫХ ОТВЕТОВ НЕТ!')
+                streamlit.subheader('ПРАВИЛЬНЫХ ОТВЕТОВ НЕ НАЙДЕНО!')
     else:
         return None
 
 
 streamlit.title('Проверка студенческих работ')
-counter = -1
 correct_hash = load_image_correct()
 load_image()
 
